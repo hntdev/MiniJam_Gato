@@ -4,22 +4,46 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public List<GameObject> HeavyGOList = new List<GameObject>();
-    public List<GameObject> LightGOList = new List<GameObject>();
+    public List<ScriptableObjectScript> ObjectList = new List<ScriptableObjectScript>();
+    public GameObject BaseObject;
+    public Collider2D collider;
+    public Hud_Manager hud;
+    public int quantity;
 
+    [SerializeField] float timer;
+
+
+    private void Start()
+    {
+        hud = FindObjectOfType<Hud_Manager>();
+        collider = GetComponent<Collider2D>();
+
+        StartCoroutine(spawner());
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if(quantity == 15)
         {
-            spawn();
+            hud.gameOver();
         }
     }
 
     public void spawn()
     {
-        float randomX = Random.Range(-5f,5f);
-        float randomY = Random.Range(-3.5f,3.5f);
-        print("AAAA");
-        GameObject temp = Instantiate(HeavyGOList[0], new Vector3(randomX, randomY, 0), Quaternion.identity);
+        float randomX = Random.Range(collider.bounds.min.x,collider.bounds.max.x);
+        float randomY = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
+        GameObject temp = Instantiate(BaseObject, new Vector3(randomX, randomY, 0), Quaternion.identity);
+        quantity++;
+    }
+
+    IEnumerator spawner()
+    {
+        spawn();
+
+        yield return new WaitForSeconds(timer);
+
+        timer -= 0.005f;
+
+        StartCoroutine(spawner());
     }
 }

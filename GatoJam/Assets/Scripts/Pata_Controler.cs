@@ -7,13 +7,26 @@ public class Pata_Controler : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] private Transform OriginReference;
 
+    Vector2 direction;
+    Vector2 target;
+
+    [SerializeField] float force;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
-        rb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction = target - (Vector2)transform.position;
+
+        if (direction.magnitude > 0.5f)
+        {
+            rb.AddForce(direction * force);
+        }
+
+
         rb.MoveRotation(RotZ() + 90);
     }
 
@@ -27,5 +40,15 @@ public class Pata_Controler : MonoBehaviour
         Vector2 dir = OriginReference.position - this.transform.position;
         dir.Normalize();
         return dir;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        rb.freezeRotation = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        rb.freezeRotation = false;
     }
 }
