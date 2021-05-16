@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f22807705dbe814ba96edb822326a81, type: 3}
-  m_Name: Object2
+  m_Name: Caneca
   m_EditorClassIdentifier: 
-  points: 151
-  mass: 1
-  drag: 0
-  image: {fileID: 21300000, guid: 05f9fe096e733d4408a9d6e55c195836, type: 3}
+  points: 5
+  mass: 3
+  drag: 5
+  image: {fileID: 21300000, guid: 6e809d5e8978dd64cad8f27ad848b0c7, type: 3}
+  hasRandomColor: 0
+  scoreObject: {fileID: 8076118245858304280, guid: 8b9649d632a31e741a545be9c698ee4a,
+    type: 3}
+  scoreImage: {fileID: 21300000, guid: e2687085a3366c54a89bf1ea205436f1, type: 3}

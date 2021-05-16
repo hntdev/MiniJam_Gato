@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     public Hud_Manager hud;
     public int quantity;
 
+    int counter;
     [SerializeField] float timer;
 
 
@@ -42,8 +43,14 @@ public class SpawnManager : MonoBehaviour
 
         yield return new WaitForSeconds(timer);
 
-        timer -= 0.005f;
+        if(counter >= 3)
+        {
+            timer -= 0.005f;
+            counter = 0;
+        }
 
+        counter++;
+        
         StartCoroutine(spawner());
     }
 }

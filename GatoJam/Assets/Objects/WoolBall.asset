@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f22807705dbe814ba96edb822326a81, type: 3}
-  m_Name: Object3
+  m_Name: WoolBall
   m_EditorClassIdentifier: 
-  points: 4
+  points: 1
   mass: 1
-  drag: 11
-  image: {fileID: 8363103150028480859, guid: b89edacdf498f414e8a560407c44b45c, type: 3}
+  drag: 0
+  image: {fileID: 21300000, guid: 54634ca6eedcf8f4d836a73d13ce0033, type: 3}
+  hasRandomColor: 1
+  scoreObject: {fileID: 8076118245858304280, guid: 8b9649d632a31e741a545be9c698ee4a,
+    type: 3}
+  scoreImage: {fileID: 21300000, guid: 8b66d10141f5c0a43b46e6bdd9fc4b85, type: 3}

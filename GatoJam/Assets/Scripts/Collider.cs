@@ -13,6 +13,11 @@ public class Collider : MonoBehaviour
     {
         if (other.tag == "Object")
         {
+            Object tempScript = other.GetComponent<Object>();
+
+            GameObject temp = Instantiate(tempScript.ScoreSO.ObjectList[tempScript.randomIndex].scoreObject, new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, 0), Quaternion.identity);
+            temp.GetComponent<SpriteRenderer>().sprite = tempScript.ScoreSO.ObjectList[tempScript.randomIndex].scoreImage;
+
             Destroy(other.gameObject);
         }
     }

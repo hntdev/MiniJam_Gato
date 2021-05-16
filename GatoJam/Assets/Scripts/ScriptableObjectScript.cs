@@ -11,4 +11,9 @@ public class ScriptableObjectScript : ScriptableObject
     public float drag = 0;
 
     public Sprite image;
+
+    public bool hasRandomColor = false;
+
+    public GameObject scoreObject;
+    public Sprite scoreImage;
 }

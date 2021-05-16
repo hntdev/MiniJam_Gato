@@ -10,12 +10,24 @@ public class Hud_Manager : MonoBehaviour
     [SerializeField] bool hudIngame;
     [SerializeField] Text scoretxt;
 
+    [SerializeField] GameObject GameoverPanel;
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+        if (hudIngame == true)
+        {
+            GameoverPanel.SetActive(false);
+        }
+    }
     private void Update()
     {
         if(hudIngame == true)
         {
             scoretxt.text = score.ToString();
         }
+
+        print(Time.timeScale);
     }
 
     public void loadScene(string SceneName)
@@ -25,7 +37,15 @@ public class Hud_Manager : MonoBehaviour
 
     public void gameOver()
     {
-        print("PERDEU PORRA");
+        GameoverPanel.SetActive(true);
+        Time.timeScale = 0;
+
+    }
+
+    public void restart()
+    {
+        Scene Atualscene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(Atualscene.name);
     }
 
 
