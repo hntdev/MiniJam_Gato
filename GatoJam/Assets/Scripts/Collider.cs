@@ -20,5 +20,9 @@ public class Collider : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+        else if(other.tag == "GameController")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

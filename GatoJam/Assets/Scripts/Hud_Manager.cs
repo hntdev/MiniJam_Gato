@@ -8,7 +8,7 @@ public class Hud_Manager : MonoBehaviour
 {
     public int score;
     [SerializeField] bool hudIngame;
-    [SerializeField] Text scoretxt;
+    [SerializeField] Text scoretxt, scoretxt2;
 
     [SerializeField] GameObject GameoverPanel;
 
@@ -25,6 +25,7 @@ public class Hud_Manager : MonoBehaviour
         if(hudIngame == true)
         {
             scoretxt.text = score.ToString();
+            scoretxt2.text = "Score: " + score.ToString();
         }
 
         print(Time.timeScale);
