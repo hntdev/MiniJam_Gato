@@ -23,7 +23,7 @@ public class Pata_Controler : MonoBehaviour
 
         if (direction.magnitude > 0.5f)
         {
-            rb.AddForce(direction * force);
+            rb.AddForce(direction.normalized * force);
         }
 
 

@@ -15,4 +15,4 @@ MonoBehaviour:
   points: 2
   mass: 15
   drag: 10
-  image: {fileID: 21300000, guid: 05f9fe096e733d4408a9d6e55c195836, type: 3}
+  image: {fileID: 21300000, guid: 46b91c8a4aa8cf14daf45264f12fb32e, type: 3}
